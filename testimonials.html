@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .testimonials-container {
+        padding: 3rem 1rem;
+        /* background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%); */
+        /* background-image: linear-gradient(135deg, rgb(23, 24, 25) 0%, rgb(28, 30, 31) 100%); */
+        background: linear-gradient(
+          135deg,
+          rgb(18, 20, 20) 0%,
+          rgb(22, 24, 25) 100%
+        );
+        background-color: initial;
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: 10px;
+      }
+
+      .section-title {
+        /* text-align: center;
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem; */
+        color: white;
+        font-size: 3rem;
+        font-weight: 600;
+        margin: 0 0 2rem 0;
+        line-height: 1.2;
+        position: relative;
+        text-align: center;
+        padding-bottom: 1rem;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        /* background: linear-gradient(90deg, #00c6fb 0%, #005bea 100%); */
+        background-color: #00ff00;
+        border-radius: 2px;
+      }
+
+      .testimonials-slider {
+        position: relative;
+        max-width: 100%;
+        overflow: hidden;
+        padding: 1rem 0;
+      }
+
+      .testimonials-track {
+        display: flex;
+        transition: transform 0.5s ease;
+        gap: 1rem;
+        padding: 0.5rem;
+      }
+
+      .testimonial-card {
+        flex: 0 0 85%;
+        /* background: white; */
+        /* background: #090909; */
+        background: rgb(7, 7, 8);
+        border-radius: 20px;
+        padding: 1.5rem;
+        /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); */
+        /* box-shadow: 0px 10px 30px (0, 0, 0, 0.05); */
+        box-shadow: 5px 5px 10px rgb(254 254 254 / 9%);
+        ;
+        transition: transform 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .testimonial-card::before {
+        content: '"';
+        position: absolute;
+        top: -20px;
+        left: 20px;
+        font-size: 100px;
+        color: rgba(0, 0, 0, 0.05);
+        font-family: Georgia, serif;
+      }
+
+      .testimonial-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .testimonial-image {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #fff;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .testimonial-author {
+        margin-left: 1rem;
+      }
+
+      .author-name {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #2d3436;
+        margin: 0;
+      }
+
+      .author-title {
+        font-size: 0.8rem;
+        color: #636e72;
+        margin: 0;
+      }
+
+      .testimonial-content {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #7e7e7e;
+        margin-bottom: 1rem;
+      }
+
+      .testimonial-rating {
+        color: #ffd700;
+        font-size: 1.1rem;
+        margin-top: 1rem;
+      }
+
+      .slider-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: white;
+        border: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+
+      .slider-btn:hover {
+        background: #f8f9fa;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .slider-btn:active {
+        transform: translateY(-50%) scale(0.95);
+      }
+
+      .prev-btn {
+        left: 10px;
+      }
+
+      .next-btn {
+        right: 10px;
+      }
+
+      .slider-btn svg {
+        width: 20px;
+        height: 20px;
+        fill: none;
+        stroke: #2d3436;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .dots-container {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #cbd5e0;
+        transition: all 0.3s ease;
+      }
+
+      .dot.active {
+        background: #005bea;
+        transform: scale(1.2);
+      }
+      
+    </style>
+  </head>
+  <body>
+    <section class="testimonials-container">
+        <h1 class="section-title">Our Reviews</h1>
+        <div class="testimonials-slider">
+          <button class="slider-btn prev-btn" aria-label="Previous">
+            <svg viewBox="0 0 24 24">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <button class="slider-btn next-btn" aria-label="Next">
+            <svg viewBox="0 0 24 24">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+          <div class="testimonials-track">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <img
+                  src="./assets/images/harsh.webp"
+                  alt="Sarah Johnson"
+                  class="testimonial-image"
+                />
+                <div class="testimonial-author">
+                  <h3 class="author-name">Sarah Johnson</h3>
+                  <p class="author-title">Marketing Director</p>
+                </div>
+              </div>
+              <p class="testimonial-content">
+                "I learned fundamental knowledge of Java and Python programming
+                from Telusko YouTube channel during my undergraduate. It helped
+                me to get a job in PwC and then I learned Spring Boot. Thank you
+                sir ."
+              </p>
+              <div class="testimonial-rating">★★★★★</div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <img
+                  src="https://source.unsplash.com/101x101/?portrait"
+                  alt="Michael Chen"
+                  class="testimonial-image"
+                />
+                <div class="testimonial-author">
+                  <h3 class="author-name">Michael Chen</h3>
+                  <p class="author-title">Tech Lead</p>
+                </div>
+              </div>
+              <p class="testimonial-content">
+                "Working with this team has been transformative for our
+                business. Their innovative solutions and dedication to
+                excellence are unmatched."
+              </p>
+              <div class="testimonial-rating">★★★★★</div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <img
+                  src="https://source.unsplash.com/102x102/?portrait"
+                  alt="Emma Davis"
+                  class="testimonial-image"
+                />
+                <div class="testimonial-author">
+                  <h3 class="author-name">Emma Davis</h3>
+                  <p class="author-title">Product Manager</p>
+                </div>
+              </div>
+              <p class="testimonial-content">
+                "The level of professionalism and creativity brought to our
+                project was outstanding. They didn't just meet our requirements
+                - they exceeded them!"
+              </p>
+              <div class="testimonial-rating">★★★★★</div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <img
+                  src="https://source.unsplash.com/102x102/?portrait"
+                  alt="Emma Davis"
+                  class="testimonial-image"
+                />
+                <div class="testimonial-author">
+                  <h3 class="author-name">Emma Davis</h3>
+                  <p class="author-title">Product Manager</p>
+                </div>
+              </div>
+              <p class="testimonial-content">
+                "The level of professionalism and creativity brought to our
+                project was outstanding. They didn't just meet our requirements
+                - they exceeded them!"
+              </p>
+              <div class="testimonial-rating">★★★★★</div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <img
+                  src="https://source.unsplash.com/102x102/?portrait"
+                  alt="Emma Davis"
+                  class="testimonial-image"
+                />
+                <div class="testimonial-author">
+                  <h3 class="author-name">Emma Davis</h3>
+                  <p class="author-title">Product Manager</p>
+                </div>
+              </div>
+              <p class="testimonial-content">
+                "The level of professionalism and creativity brought to our
+                project was outstanding. They didn't just meet our requirements
+                - they exceeded them!"
+              </p>
+              <div class="testimonial-rating">★★★★★</div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <img
+                  src="https://source.unsplash.com/102x102/?portrait"
+                  alt="Emma Davis"
+                  class="testimonial-image"
+                />
+                <div class="testimonial-author">
+                  <h3 class="author-name">Emma Davis</h3>
+                  <p class="author-title">Product Manager</p>
+                </div>
+              </div>
+              <p class="testimonial-content">
+                "The level of professionalism and creativity brought to our
+                project was outstanding. They didn't just meet our requirements
+                - they exceeded them!"
+              </p>
+              <div class="testimonial-rating">★★★★★</div>
+            </div>
+          </div>
+          <div class="dots-container">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+
+    </section>
+  </body>
+</html>

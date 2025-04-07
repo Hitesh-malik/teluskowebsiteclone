@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team</title>
+    <link rel="stylesheet" href="teams.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <script src="https://kit.fontawesome.com/e48d166edc.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .team-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 1rem 2rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .section-title {
+            color: #ffffff;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            overflow: hidden;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover .profile-img img {
+            transform: scale(1.1);
+        }
+
+        .team-name {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .linkedin-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: #0077b5;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .linkedin-btn:hover {
+            background-color: #005885;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 119, 181, 0.3);
+        }
+
+        .linkedin-icon {
+            margin-right: 8px;
+            width: 16px;
+            height: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .team-name {
+                font-size: 1.25rem;
+            }
+        }
+
+        .team-social {
+            display: flex;
+            background: #0077b5;
+            flex-direction: row;
+            justify-content: space-around;
+            padding: 0.6rem;
+            margin-top: 20px;
+            border-radius: 50px;
+            gap: 1rem;
+        }
+
+        .fab {
+            color: white;
+            font-size: 1.3rem;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- <section>
+ <div class="container">
+        <div class="section-title">
+            <h1>Our Team Page</h1>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <div class="team">
+                    <div class="team-img">
+                        <img src="../assets/images/NavinReddyheadshot.webp" alt="Team Image">
+                    </div>
+                    <div class="team-content">
+                        <h2>Navin Reddy</h2>
+                    </div>
+                    <div class="team-social">
+                         <a href="https://twitter.com/navinreddy20" class="social-tw"> <i class="fab fa-twitter" ></i></a>
+                         <a href="https://www.facebook.com/navin.reddy20" class="social-fb"> <i class="fab fa-facebook-f"></i></a> 
+                         <a href="https://www.linkedin.com/in/navinreddy20/" class="social-li"> <i class="fab fa-linkedin-in"></i></a>
+                         <a href="https://www.instagram.com/navinreddyofficial/" class="social-in"> <i class="fab fa-instagram"></i></a>
+                         <a href="https://www.youtube.com/@Telusko" class="social-yt"> <i class="fab fa-youtube"></i></a>          
+                    </div>
+                </div>
+            </div>
+            
+            <div class="column">
+                <div class="team">
+                    <div class="team-img">
+                        <img src="../assets/images/kiranreddy.webp" alt="Team Image">
+                    </div>
+                    <div class="team-content">
+                        <h2>Kiran Reddy</h2>
+                    </div>
+                    <div class="team-social">
+                        
+                        <a href="https://www.linkedin.com/in/kiran-reddy-4b5397111/" class="social-li"> <i class="fab fa-linkedin-in"></i></a>
+                    
+                    </div>
+                </div>
+            </div>
+                <div class="column">
+                    <div class="team">
+                        <div class="team-img">
+                            <img src="../assets/images/harsh.webp" alt="Team Image">
+                        </div>
+                        <div class="team-content">
+                            <h2>Harsh Rawal</h2>
+                        </div>
+                        <div class="team-social">
+    
+                            <a href="https://www.linkedin.com/in/harsh-rawal-385550125/" class="social-li"> <i class="fab fa-linkedin-in"></i></a>
+    
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                <div class="team">
+                    <div class="team-img">
+                        <img src="../assets/images/hyderabbas.webp" alt="Team Image">
+                    </div>
+                    <div class="team-content">
+                        <h2>Hyder</h2>   
+                    </div>
+                    <div class="team-social">
+                        <a href="https://www.linkedin.com/in/hyder-abbas-081820150/" class="social-li"> <i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="column">
+                <div class="team">
+                    <div class="team-img">
+                        <img src="../assets/images/Pravin kumar Thatipalli.webp" alt="Team Image">
+                    </div>
+                    <div class="team-content">
+                        <h2>Pravin Reddy</h2>
+ 
+                    </div>
+                    <div class="team-social">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="team">
+                    <div class="team-img">
+                        <img src="../assets/images/Gaurav Sharma.webp" alt="Team Image">
+                    </div>
+                    <div class="team-content">
+                        <h2>Gaurav Sharma</h2>
+                    </div>
+                    <div class="team-social">
+                        <a href="https://www.linkedin.com/in/gaurav4044/" class="social-li"> <i class="fab fa-linkedin-in"></i></a>
+                     
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="team">
+                    <div class="team-img">
+                        <img src="../assets/images/Ishann.jpg" alt="Team Image">
+                    </div>
+                    <div class="team-content">
+                        <h2>Ishan</h2>
+                       
+                    </div>
+                    <div class="team-social">
+                        <a href="https://www.linkedin.com/in/sushil-rawal-03909a207" class="social-li"> <i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            </div>
+            <div class="column">
+                <div class="team">
+                    <div class="team-img">
+                        <img src="../assets/images/Naman.jpg" alt="Team Image">
+                    </div>
+                    <div class="team-content">
+                        <h2>Naman Pahariya</h2>
+                       
+                    </div>
+                    <div class="team-social">
+                        <a href="https://www.linkedin.com/in/sushil-rawal-03909a207" class="social-li"> <i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            </div>
+            
+            <div class="column">
+                <div class="team">
+                    <div class="team-img">
+                        <img src="../assets/images/Somesh Shenoy.webp" alt="Team Image">
+                    </div>
+                    <div class="team-content">
+                        <h2>Somesh Shenoy</h2>
+                        
+                    </div>
+                    <div class="team-social">
+                        
+                        <a href="https://www.linkedin.com/in/someshshenoy/" class="social-li"> <i class="fab fa-linkedin-in"></i></a>
+                       
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="team">
+                    <div class="team-img">
+                        <img src="../assets/images/Sushil_FaceShot - Sushi.webp" alt="Team Image">
+                    </div>
+                    <div class="team-content">
+                        <h2>Sushil Rawal</h2>
+                       
+                    </div>
+                    <div class="team-social">
+                        <a href="https://www.linkedin.com/in/sushil-rawal-03909a207" class="social-li"> <i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            </div>
+    
+            <div class="column">
+                <div class="team">
+                    <div class="team-img">
+                        <img src="../assets/images/komal work.webp" alt="Team Image">
+                    </div>
+                    <div class="team-content">
+                        <h2>Komal Pakhare</h2>
+                       
+                    </div>
+                    <div class="team-social">
+                        <a href="https://www.linkedin.com/in/sushil-rawal-03909a207" class="social-li"> <i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            </div>
+                
+            <div class="column">
+              <div class="team">
+                  <div class="team-img">
+                      <img src="../assets/images/shiva (1).webp" alt="Team Image">
+                  </div>
+                  <div class="team-content">
+                      <h2>Shiva Srivastava</h2>
+                  </div>
+                  <div class="team-social">                    
+                      <a href="https://www.linkedin.com/in/shivasrivastava1/" class="social-li"> <i class="fab fa-linkedin-in"></i></a>                    
+                  </div>
+              </div>
+          </div>
+
+          <div class="column">
+            <div class="team">
+                <div class="team-img">
+                    <img src="../assets/images/Muskan Garg.webp" alt="Team Image">
+                </div>
+                <div class="team-content">
+                    <h2>Muskan Garg </h2>
+                </div>
+                <div class="team-social">              
+                    <a href="https://www.linkedin.com/in/muskangarg03" class="social-li"> <i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>    
+        <div class="column">
+            <div class="team">
+                <div class="team-img">
+                    <img src="../assets/images/Manish Rawal.webp" alt="Team Image">
+                </div>
+                <div class="team-content">
+                    <h2>Manish Rawal</h2>
+                </div>
+                <div class="team-social">              
+                    <a href="https://www.linkedin.com/in/mr-consultants-445manish" class="social-li"> <i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>       
+    </div>
+    </section> -->
+    <section class="team-section">
+        <h2 class="section-title">Our Team</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="profile-img">
+                    <img src="../assets/images/NavinReddyheadshot.webp" alt="Navin Reddy" />
+                </div>
+                <h3 class="team-name">Navin Reddy</h3>
+                <!-- <a href="https://linkedin.com/in/" class="linkedin-btn"> -->
+                <div class="team-social">
+                    <a href="https://www.facebook.com/navin.reddy20" class="social-fb"> <i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/navinreddy20" class="social-tw"> <i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/@Telusko" class="social-yt"> <i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/navinreddyofficial/" class="social-in"> <i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/navinreddy20/" class="social-li"> <i
+                            class="fab fa-linkedin-in"></i></a>
+                </div>
+                <!-- <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    Connect -->
+                </a>
+            </div>
+
+            <div class="team-card">
+                <div class="profile-img">
+                    <img src="../assets/images/kiranreddy.webp" alt="Kiran Reddy" />
+                </div>
+                <h3 class="team-name">Kiran Reddy</h3>
+                <a href="https://www.linkedin.com/in/kiran-reddy-4b5397111/" class="linkedin-btn">
+                    <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    Connect
+                </a>
+            </div>
+
+            <div class="team-card">
+                <div class="profile-img">
+                    <img src="../assets/images/harsh.webp" alt="Harsh Rawal" />
+                </div>
+                <h3 class="team-name">Harsh Rawal</h3>
+                <a href="https://www.linkedin.com/in/harsh-rawal-385550125/" class="linkedin-btn">
+                    <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    Connect
+                </a>
+            </div>
+
+            <div class="team-card">
+                <div class="profile-img">
+                    <img src="../assets/images/hyderabbas.webp" alt="Hyder" />
+                </div>
+                <h3 class="team-name">Hyder</h3>
+                <a href="https://www.linkedin.com/in/hyder-abbas-081820150/" class="linkedin-btn">
+                    <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    Connect
+                </a>
+            </div>
+            <div class="team-card">
+                <div class="profile-img">
+                    <img src="../assets/images/Pravin kumar Thatipalli.webp" alt="Pravin Reddy" />
+                </div>
+                <h3 class="team-name">Pravin Reddy</h3>
+                <!-- <a href="https://linkedin.com/in/" class="linkedin-btn">
+                    <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    Connect
+                </a> -->
+            </div>
+            <div class="team-card">
+                <div class="profile-img">
+                    <img src="../assets/images/Gaurav Sharma.webp" alt="Gaurav Sharma" />
+                </div>
+                <h3 class="team-name">Gaurav Sharma</h3>
+                <a href="https://www.linkedin.com/in/gaurav4044/" class="linkedin-btn">
+                    <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    Connect
+                </a>
+            </div>
+            <div class="team-card">
+                <div class="profile-img">
+                    <img src="../assets/images/Ishann.jpg" alt="Ishan" />
+                </div>
+                <h3 class="team-name">Ishan Berry</h3>
+                <a href="https://www.linkedin.com/in/ishan-berry-989045203/" class="linkedin-btn">
+                    <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    Connect
+                </a>
+            </div>
+            <div class="team-card">
+                <div class="profile-img">
+                    <img src="../assets/images/Naman.jpg" alt="Naman Pahariya" />
+                </div>
+                <h3 class="team-name">Naman Pahariya</h3>
+                <a href="https://www.linkedin.com/in/naman-pahariya" class="linkedin-btn">
+                    <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    Connect
+                </a>
+            </div>
+            <div class="team-card">
+                <div class="profile-img">
+                    <img src="../assets/images/hiteshMalik.jpg" alt="Hitesh" />
+                </div>
+                <h3 class="team-name">Hitesh malik</h3>
+                <a href="https://www.linkedin.com/in/hitesh-malik-4816221a4" class="linkedin-btn">
+                    <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    Connect
+                </a>
+            </div>
+            <div class="team-card">
+                <div class="profile-img">
+                    <img src="../assets/images/Shramik.jpg" alt=" Shramik Satu Masti
+                    " />
+                </div>
+                <h3 class="team-name"> Shramik Satu Masti
+                </h3>
+                <a href="https://www.linkedin.com/in/shramik-masti-5bb3a1212" class="linkedin-btn">
+                    <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    Connect
+                </a>
+            </div>
+            <div class="team-card">
+                <div class="profile-img">
+                    <img src="../assets/images/Sushil_FaceShot - Sushi.webp" alt="Sushil Rawal" />
+                </div>
+                <h3 class="team-name">Sushil Rawal</h3>
+                <a href="https://www.linkedin.com/in/sushil-rawal-03909a207" class="linkedin-btn">
+                    <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    Connect
+                </a>
+            </div>
+            <div class="team-card">
+                <div class="profile-img">
+                    <img src="../assets/images/komal work.webp" alt="Komal Pakhare" />
+                </div>
+                <h3 class="team-name">Komal Pakhare</h3>
+                <!-- <a href="https://www.linkedin.com/in/sushil-rawal-03909a207" class="linkedin-btn">
+                    <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    Connect
+                </a> -->
+            </div>
+            <div class="team-card">
+                <div class="profile-img">
+                    <img src="../assets/images/shiva (1).webp" alt="Shiva Srivastava" />
+                </div>
+                <h3 class="team-name">Shiva Srivastava</h3>
+                <a href="https://www.linkedin.com/in/shivasrivastava1/" class="linkedin-btn">
+                    <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    Connect
+                </a>
+            </div>
+            <div class="team-card">
+                <div class="profile-img">
+                    <img src="../assets/images/Muskan Garg.webp" alt="Muskan Garg" />
+                </div>
+                <h3 class="team-name">Muskan Garg</h3>
+                <a href="https://www.linkedin.com/in/muskangarg03" class="linkedin-btn">
+                    <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    Connect
+                </a>
+            </div>
+            <div class="team-card">
+                <div class="profile-img">
+                    <img src="../assets/images/Manish Rawal.webp" alt="Manish Rawal" />
+                </div>
+                <h3 class="team-name">Manish Rawal</h3>
+                <a href="https://www.linkedin.com/in/mr-consultants-445manish" class="linkedin-btn">
+                    <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    Connect
+                </a>
+            </div>
+
+        </div>
+    </section>
+</body>
+
+</html>

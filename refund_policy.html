@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="refund_policy.css">
+    <title>Refund Policy</title>
+</head>
+<body>
+
+    <header>
+        <h1>Refund Policy</h1>
+        <a href="index.html"><button>Home</button></a>
+    </header>
+
+    <section id="policy-content">
+        <h2><strong> Refund and Cancellation Policy</strong> </h1>
+<p><b> 1.</b>Refunds and cancellations are embraced with open arms in our realm.</p>
+<p><b> 2.</b>The refund process takes 5-7 working days to credit your bank account.</p>
+<p><b> 3.</b>A modest 7% refund charge accompanies the return, while 93% of the total paid amount finds its way back to you.</p>
+<p><b> 4.</b>Yes, if you take admission for live batch and are not happy you can ask for refund till 7 days from the purchase date.</p>
+<p><b> 5.</b>Regrettably, non-tangible goods like “Recorded Courses” are exempt from refunds once confirmed and sent.</p>
+<p><b> 6.</b>We encourage you to seek our assistance for any issues with product receipt or downloads.</p>
+
+    </section>
+
+    <section id="refund-form" style="display: none;">
+        <h2>Refund Request Form</h2>
+        <form id="refund-request-form">
+            <label for="order-number">Order Number:</label>
+            <input type="text" id="order-number" name="order-number" required>
+
+            <label for="reason">Reason for Refund:</label>
+            <textarea id="reason" name="reason" rows="4" required></textarea>
+
+            <button type="button" onclick="submitRefundRequest()">Submit Request</button>
+        </form>
+    </section>
+
+    <script src="script.js">
+    function submitRefundRequest() {
+        // You can add your logic for submitting the refund request here.
+        // For demo purposes, let's just display an alert.
+        alert("Refund request submitted successfully!");
+        // You can also redirect the user to a confirmation page or perform any other actions.
+    }</script>
+</body>
+</html>

@@ -1,0 +1,3624 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" style="overflow-x: hidden;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Telusko Documentation - Comprehensive Programming Guides</title>
+
+    <!-- Preload critical fonts -->
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        as="style">
+
+    <!-- Preload critical Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" as="style">
+
+    <!-- CSS stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Favicon and App Icons -->
+    <link rel="icon" href="./images/favicon.ico">
+    <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+
+    <!-- PWA Support -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#29bf12">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Comprehensive documentation and learning resources for Java, Python, JavaScript, and more. Master programming with structured guides from Telusko.">
+    <meta name="keywords" content="programming documentation, learn java, python tutorials, javascript guides, telusko">
+    <meta name="author" content="Telusko">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://docs.telusko.com/">
+    <meta property="og:title" content="Telusko Documentation - Comprehensive Programming Guides">
+    <meta property="og:description"
+        content="Master programming with structured documentation and learning paths from Telusko.">
+    <meta property="og:image" content="https://docs.telusko.com/images/og-image.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@telusko">
+    <meta name="twitter:title" content="Telusko Documentation - Programming Guides">
+    <meta name="twitter:description" content="Master programming with structured documentation from Telusko.">
+    <meta name="twitter:image" content="https://docs.telusko.com/images/twitter-card.jpg">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+        :root {
+            /* Base colors */
+            --primary-hue: 130;
+            --primary-saturation: 62%;
+
+            /* Light Theme */
+            --bg-color-light: #ffffff;
+            --bg-color-light-secondary: #f8f9fa;
+            --bg-color-light-tertiary: #eef1f5;
+            --text-color-light: #1a1a1a;
+            --text-secondary-light: #4a5568;
+            --accent-light: hsl(var(--primary-hue), var(--primary-saturation), 35%);
+            --accent-light-hover: hsl(var(--primary-hue), var(--primary-saturation), 30%);
+            --accent-light-transparent: hsla(var(--primary-hue), var(--primary-saturation), 35%, 0.1);
+            --accent-light-gradient: linear-gradient(135deg, hsl(var(--primary-hue), var(--primary-saturation), 35%) 0%, hsl(var(--primary-hue), var(--primary-saturation), 42%) 100%);
+            --card-bg-light: #ffffff;
+            --card-border-light: rgba(0, 0, 0, 0.1);
+            --card-shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --nav-bg-light: rgba(255, 255, 255, 0.95);
+            --code-bg-light: #f1f5f9;
+            --hero-gradient-light: linear-gradient(135deg, #f8f9fa 0%, #e2e8f0 100%);
+
+            /* Dark Theme */
+            --bg-color-dark: #121212;
+            --bg-color-dark-secondary: #1e1e1e;
+            --bg-color-dark-tertiary: #2a2a2a;
+            --text-color-dark: #e2e8f0;
+            --text-secondary-dark: #a0aec0;
+            --accent-dark: hsl(var(--primary-hue), var(--primary-saturation), 45%);
+            --accent-dark-hover: hsl(var(--primary-hue), var(--primary-saturation), 50%);
+            --accent-dark-transparent: hsla(var(--primary-hue), var(--primary-saturation), 45%, 0.15);
+            --accent-dark-gradient: linear-gradient(135deg, hsl(var(--primary-hue), var(--primary-saturation), 35%) 0%, hsl(var(--primary-hue), var(--primary-saturation), 42%) 100%);
+            --card-bg-dark: #1e1e1e;
+            --card-border-dark: rgba(255, 255, 255, 0.1);
+            --card-shadow-dark: 0 4px 12px rgba(0, 0, 0, 0.2);
+            --nav-bg-dark: rgba(18, 18, 18, 0.95);
+            --code-bg-dark: #2d3748;
+            --hero-gradient-dark: linear-gradient(135deg, #121212 0%, #16213e 100%);
+
+            /* Animation */
+            --transition-normal: all 0.3s ease;
+            --transition-fast: all 0.15s ease;
+
+            /* Preloader */
+            --preloader-bg: rgba(24, 24, 24, 0.9);
+            --preloader-dot: #29bf12;
+
+            /* Fonts */
+            --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        }
+
+        /* Theme Variables */
+        html[data-theme="light"] {
+            --bg-color: var(--bg-color-light);
+            --bg-color-secondary: var(--bg-color-light-secondary);
+            --bg-color-tertiary: var(--bg-color-light-tertiary);
+            --text-color: var(--text-color-light);
+            --text-secondary: var(--text-secondary-light);
+            --accent: var(--accent-light);
+            --accent-hover: var(--accent-light-hover);
+            --accent-transparent: var(--accent-light-transparent);
+            --accent-gradient: var(--accent-light-gradient);
+            --card-bg: var(--card-bg-light);
+            --card-border: var(--card-border-light);
+            --card-shadow: var(--card-shadow-light);
+            --nav-bg: var(--nav-bg-light);
+            --code-bg: var(--code-bg-light);
+            --hero-gradient: var(--hero-gradient-light);
+        }
+
+        html[data-theme="dark"] {
+            --bg-color: var(--bg-color-dark);
+            --bg-color-secondary: var(--bg-color-dark-secondary);
+            --bg-color-tertiary: var(--bg-color-dark-tertiary);
+            --text-color: var(--text-color-dark);
+            --text-secondary: var(--text-secondary-dark);
+            --accent: var(--accent-dark);
+            --accent-hover: var(--accent-dark-hover);
+            --accent-transparent: var(--accent-dark-transparent);
+            --accent-gradient: var(--accent-dark-gradient);
+            --card-bg: var(--card-bg-dark);
+            --card-border: var(--card-border-dark);
+            --card-shadow: var(--card-shadow-dark);
+            --nav-bg: var(--nav-bg-dark);
+            --code-bg: var(--code-bg-dark);
+            --hero-gradient: var(--hero-gradient-dark);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-color);
+            color: var(--text-secondary);
+            overflow-x: hidden;
+            line-height: 1.6;
+            transition: var(--transition-normal);
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            text-decoration: none;
+            font-size: 1rem;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent-transparent);
+            color: var(--text-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--card-border);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            transition: var(--transition-normal);
+        }
+
+        .navbar.scrolled {
+            padding: 0.75rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 700;
+            font-size: 1.25rem;
+            transition: var(--transition-normal);
+        }
+
+        .logo:hover {
+            opacity: 0.9;
+        }
+
+        .logo img {
+            height: 36px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition-normal);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text-color);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--bg-color-tertiary);
+            color: var(--text-color);
+            cursor: pointer;
+            transition: var(--transition-normal);
+            border: none;
+            font-size: 1.1rem;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--accent-transparent);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background-color: var(--text-color);
+            border-radius: 2px;
+            transition: var(--transition-normal);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--bg-color);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            padding: 5rem 2rem 2rem;
+            transition: right 0.3s ease;
+            z-index: 1000;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--card-border);
+            font-size: 1.1rem;
+            transition: var(--transition-normal);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--text-color);
+        }
+
+        .mobile-nav-link i {
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .menu-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--bg-color-tertiary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+
+        .mobile-menu-close:hover {
+            background-color: var(--accent-transparent);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 2rem 8rem;
+            background: var(--hero-gradient);
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+
+        .highlight {
+            color: var(--accent);
+            position: relative;
+            display: inline-block;
+        }
+
+        /* .highlight::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 40%;
+                bottom: 5px;
+                left: 0;
+                background-color: var(--accent-transparent);
+                z-index: -1;
+                border-radius: 2px;
+            } */
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .hero-image {
+            max-width: 600px;
+            width: 100%;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition-normal);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            margin: 0 auto;
+        }
+
+        .hero-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-image svg {
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+            display: block;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--bg-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: var(--transition-normal);
+            box-shadow: var(--card-shadow);
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-gradient);
+            z-index: 2;
+        }
+
+        .feature-body {
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .feature-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-transparent);
+            color: var(--accent);
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-text {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Technologies Section */
+        .technologies {
+            background-color: var(--bg-color-secondary);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .tech-card {
+            background-color: var(--card-bg);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition-normal);
+            box-shadow: var(--card-shadow);
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background-color: var(--accent-transparent);
+            color: var(--accent);
+            border-radius: 40%;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+        }
+
+        .tech-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .tech-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Documentation Demo Section */
+        .doc-demo {
+            background-color: var(--bg-color);
+        }
+
+        .doc-preview {
+            background-color: var(--card-bg);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition-normal);
+            margin-top: 4rem;
+        }
+
+        .doc-preview:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .doc-header {
+            background-color: var(--bg-color-tertiary);
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .window-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .window-control {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .control-close {
+            background-color: #ff5f56;
+        }
+
+        .control-minimize {
+            background-color: #ffbd2e;
+        }
+
+        .control-expand {
+            background-color: #27c93f;
+        }
+
+        .doc-title {
+            background-color: var(--bg-color-secondary);
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+        }
+
+        .doc-content {
+            padding: 2rem;
+            font-family: var(--font-mono);
+        }
+
+        .doc-section {
+            margin-bottom: 2rem;
+        }
+
+        .doc-heading {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .h3 {
+            font-size: 1.8rem;
+        }
+
+        .h4 {
+            font-size: 1.3rem;
+        }
+
+        .doc-paragraph {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .doc-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .doc-list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .doc-list li::before {
+            content: '•';
+            color: var(--accent);
+        }
+
+        .code-block {
+            background-color: var(--code-bg);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            position: relative;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+
+        .code-block .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background-color: var(--bg-color-tertiary);
+            border: none;
+            color: var(--text-secondary);
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: var(--transition-fast);
+        }
+
+        .code-block .copy-btn:hover {
+            background-color: var(--accent-transparent);
+            color: var(--text-color);
+        }
+
+        .code-keyword {
+            color: #88c9ff;
+        }
+
+        /* Why Documentation Section */
+        .why-docs {
+            background-color: var(--bg-color-secondary);
+        }
+
+        .why-docs-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .why-docs-text {
+            flex: 1;
+        }
+
+        .why-docs-image {
+            flex: 1;
+        }
+
+        .why-docs-image img {
+            width: 100%;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition-normal);
+        }
+
+        .why-docs-image img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .why-docs-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .why-docs-description {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .benefit-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: var(--accent-transparent);
+            color: var(--accent);
+            border-radius: 50%;
+            flex-shrink: 0;
+            font-size: 1rem;
+        }
+
+        .benefit-text {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Learning Paths Section */
+        .learning-paths {
+            background-color: var(--bg-color);
+        }
+
+        .paths-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .path-timeline {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .path-card {
+            background-color: var(--card-bg);
+            border-radius: 1rem;
+            padding: 2rem;
+            position: relative;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition-normal);
+        }
+
+        .path-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-marker {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 2rem;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent), rgba(47, 148, 34, 0.1));
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            border: 3px solid var(--bg-color);
+            left: -8px;
+        }
+
+        .dot-1 {
+            top: 15%;
+        }
+
+        .dot-2 {
+            top: 40%;
+        }
+
+        .dot-3 {
+            top: 65%;
+        }
+
+        .dot-4 {
+            top: 90%;
+        }
+
+        .path-content {
+            padding-left: 2rem;
+        }
+
+        .path-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .path-step {
+            margin-bottom: 1.5rem;
+        }
+
+        .step-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .path-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .path-image img {
+            width: 100%;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition-normal);
+        }
+
+        .path-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--accent-gradient);
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background-color: var(--bg-color-secondary);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 4rem auto 0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--card-border);
+            margin-bottom: 1rem;
+        }
+
+        .faq-question {
+            padding: 1.5rem 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: var(--transition-normal);
+        }
+
+        .faq-question:hover {
+            color: var(--accent);
+        }
+
+        .faq-toggle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: var(--accent-transparent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-normal);
+        }
+
+        .faq-toggle i {
+            color: var(--accent);
+            font-size: 0.8rem;
+            transition: var(--transition-normal);
+        }
+
+        .faq-answer {
+            padding: 0 0 1.5rem;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            display: none;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--hero-gradient);
+            text-align: center;
+            padding: 8rem 2rem;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
+            background-color: var(--accent);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: var(--transition-normal);
+            border: none;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--bg-color-tertiary);
+            padding: 5rem 0 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo img {
+            height: 36px;
+            width: auto;
+        }
+
+        .footer-logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .footer-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: var(--bg-color);
+            border-radius: 50%;
+            color: var(--text-secondary);
+            transition: var(--transition-normal);
+        }
+
+        .social-link:hover {
+            background-color: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition-normal);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-link:hover {
+            color: var(--accent);
+            transform: translateX(3px);
+        }
+
+        .footer-link i {
+            font-size: 0.7rem;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background-color: var(--card-border);
+            margin-bottom: 2rem;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .legal-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition-normal);
+        }
+
+        .legal-link:hover {
+            color: var(--accent);
+        }
+
+        /* Preloader Styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background-color: var(--preloader-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        #preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .spinner {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .spinner>div {
+            width: 14px;
+            height: 14px;
+            background-color: var(--preloader-dot);
+            border-radius: 100%;
+            display: inline-block;
+            animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+        }
+
+        .spinner .bounce1 {
+            animation-delay: -0.32s;
+        }
+
+        .spinner .bounce2 {
+            animation-delay: -0.16s;
+        }
+
+        @keyframes sk-bouncedelay {
+
+            0%,
+            80%,
+            100% {
+                transform: scale(0);
+            }
+
+            40% {
+                transform: scale(1.0);
+            }
+        }
+
+        /* Back to top button */
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-normal);
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 99;
+        }
+
+        #back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #back-to-top:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .fade-in-delay-1 {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 0.2s;
+        }
+
+        .fade-in-delay-2 {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 0.4s;
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .fade-in-down {
+            opacity: 0;
+            animation: fadeInDown 1s ease forwards;
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            animation: fadeInLeft 1s ease forwards;
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            animation: fadeInRight 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Media Queries */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .why-docs-content {
+                flex-direction: column;
+            }
+
+            .why-docs-image {
+                order: -1;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .why-docs-text {
+                text-align: center;
+            }
+
+            .benefits-grid {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .nav-actions .btn {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .paths-content {
+                flex-direction: column;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-legal {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .feature-body,
+            .tech-card {
+                padding: 1.5rem;
+            }
+
+            .testimonial-card {
+                min-width: 280px;
+                max-width: 280px;
+            }
+        }
+
+        /* SVG in Hero Section Styles */
+        .hero-image svg.doc-svg {
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+        }
+
+        /* Dark mode styles for SVG elements */
+        html[data-theme="dark"] .doc-svg .bg-fill {
+            fill: url(#bgGradientDark);
+        }
+
+        html[data-theme="dark"] .doc-svg .text-primary {
+            fill: #e2e8f0;
+        }
+
+        html[data-theme="dark"] .doc-svg .text-secondary {
+            fill: #a0aec0;
+        }
+
+        html[data-theme="dark"] .doc-svg .card-bg {
+            fill: #1e1e1e;
+        }
+
+        html[data-theme="dark"] .doc-svg .card-stroke {
+            stroke: rgba(255, 255, 255, 0.1);
+        }
+
+        html[data-theme="dark"] .doc-svg .code-bg {
+            fill: #2d3748;
+        }
+
+        /* Responsive adjustments for the hero section */
+        @media (max-width: 1024px) {
+            .hero-container {
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-container {
+                flex-direction: column;
+            }
+
+            .hero-image svg.doc-svg {
+                max-width: 100%;
+                max-height: 350px;
+            }
+        }
+
+        /* Animation for SVG elements */
+        .doc-svg .bg-fill,
+        .doc-svg .text-primary,
+        .doc-svg .text-secondary,
+        .doc-svg .card-bg,
+        .doc-svg .card-stroke,
+        .doc-svg .code-bg {
+            transition: var(--transition-normal);
+        }
+
+        /* Enhance the float animation for SVG */
+        @keyframes float-svg {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .hero-image svg.doc-svg {
+            animation: float-svg 5s ease-in-out infinite;
+        }
+
+        /* Additional Responsive CSS for Telusko Documentation Website */
+
+        /* Extra large devices (large desktops) - No changes needed, this is your base design */
+
+        /* Large devices (desktops, less than 1200px) */
+        @media (max-width: 1199.98px) {
+            .hero-title {
+                font-size: 3.2rem;
+            }
+
+            .section-title {
+                font-size: 2.3rem;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .hero-container {
+                gap: 2rem;
+            }
+
+            .features-grid,
+            .tech-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+
+            .doc-content {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Medium devices (tablets, less than 992px) */
+        @media (max-width: 991.98px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.15rem;
+            }
+
+            .section {
+                padding: 5rem 0;
+            }
+
+            .hero {
+                padding: 8rem 1.5rem 6rem;
+                min-height: auto;
+            }
+
+            .section-title {
+                font-size: 2.1rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 3rem;
+            }
+
+            .why-docs-content,
+            .paths-content {
+                gap: 3rem;
+            }
+
+            .why-docs-title {
+                font-size: 2rem;
+            }
+
+            .feature-card {
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            .feature-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+            }
+        }
+
+        /* Small devices (landscape phones, less than 768px) */
+        @media (max-width: 767.98px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .hero-image {
+                margin-top: 2rem;
+                max-width: 450px;
+            }
+
+            .why-docs-content {
+                flex-direction: column;
+            }
+
+            .why-docs-image {
+                order: -1;
+            }
+
+            .why-docs-text {
+                text-align: center;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefit-item {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .doc-demo .doc-preview {
+                border-radius: 0.5rem;
+            }
+
+            .doc-header {
+                padding: 0.75rem;
+            }
+
+            .doc-title {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.75rem;
+            }
+
+            .window-control {
+                width: 10px;
+                height: 10px;
+            }
+
+            .footer-legal {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            /* Make the FAQs more touch-friendly */
+            .faq-question {
+                padding: 1.25rem 0;
+            }
+
+            .mobile-menu {
+                width: 280px;
+            }
+
+            .cta {
+                padding: 6rem 1.5rem;
+            }
+
+            .cta-title {
+                font-size: 2.3rem;
+            }
+
+            .cta-subtitle {
+                font-size: 1.1rem;
+            }
+
+            /* Improve form elements touch targets if you have any */
+            input,
+            select,
+            textarea,
+            button {
+                font-size: 16px;
+                /* Prevents iOS zoom on focus */
+            }
+        }
+
+        /* Extra small devices (phones, less than 576px) */
+        @media (max-width: 575.98px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .hero {
+                padding: 7rem 1rem 5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .feature-body,
+            .tech-card {
+                padding: 1.25rem;
+            }
+
+            .feature-title {
+                font-size: 1.2rem;
+            }
+
+            .feature-text {
+                font-size: 0.95rem;
+            }
+
+            .tech-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+
+            .tech-name {
+                font-size: 1.2rem;
+            }
+
+            .why-docs-title {
+                font-size: 1.8rem;
+            }
+
+            .path-title {
+                font-size: 1.4rem;
+            }
+
+            .step-title {
+                font-size: 1rem;
+            }
+
+            .footer-column {
+                padding: 0 0.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .footer-links {
+                align-items: center;
+            }
+
+            .footer-link {
+                justify-content: center;
+            }
+
+            .benefit-item {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .benefit-text {
+                text-align: center;
+            }
+
+            .doc-content {
+                padding: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .code-block {
+                padding: 0.75rem;
+                margin: 0.75rem 0;
+            }
+
+            .code-block pre {
+                font-size: 0.8rem;
+            }
+
+            .faq-question {
+                font-size: 1.1rem;
+            }
+
+            .faq-answer {
+                font-size: 0.95rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .cta-subtitle {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                padding: 0.85rem 2rem;
+                font-size: 1.1rem;
+            }
+
+            /* Improved touch targets */
+            .nav-link,
+            .footer-link,
+            .mobile-nav-link {
+                padding: 0.75rem 0;
+            }
+
+            .mobile-menu-close {
+                width: 42px;
+                height: 42px;
+            }
+
+            #back-to-top {
+                width: 45px;
+                height: 45px;
+                right: 20px;
+                bottom: 20px;
+            }
+        }
+
+        /* Very small devices (iPhone SE, Galaxy Fold, etc.) */
+        @media (max-width: 374.98px) {
+            .hero-title {
+                font-size: 1.9rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .navbar {
+                padding: 0.75rem;
+            }
+
+            .logo img {
+                height: 32px;
+            }
+
+            .mobile-menu {
+                width: 250px;
+            }
+
+            .why-docs-title {
+                font-size: 1.6rem;
+            }
+
+            .path-content {
+                padding-left: 1.5rem;
+            }
+
+            .path-step {
+                margin-bottom: 1.25rem;
+            }
+
+            .timeline-dot {
+                width: 16px;
+                height: 16px;
+                left: -6px;
+            }
+
+            .doc-heading.h3 {
+                font-size: 1.5rem;
+            }
+
+            .doc-heading.h4 {
+                font-size: 1.1rem;
+            }
+
+            /* Handle stat numbers better on very small screens */
+            .stat-value,
+            div[style*="font-size: 3rem"] {
+                font-size: 2.5rem !important;
+            }
+        }
+
+        /* Landscape orientation fixes for mobile devices */
+        @media (max-height: 480px) and (orientation: landscape) {
+            .hero {
+                min-height: auto;
+                padding: 6rem 1rem 3rem;
+            }
+
+            .hero-container {
+                flex-direction: row;
+                align-items: center;
+                text-align: left;
+            }
+
+            .hero-content {
+                flex: 1;
+            }
+
+            .hero-image {
+                flex: 1;
+                margin-top: 0;
+            }
+
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+
+            .hero-buttons .btn {
+                width: auto;
+            }
+
+            .mobile-menu {
+                padding-top: 4rem;
+            }
+
+            /* Adjust navbar height for landscape mode */
+            .navbar {
+                padding: 0.5rem 1rem;
+            }
+
+            .navbar.scrolled {
+                padding: 0.5rem 1rem;
+            }
+        }
+
+        /* Print styles - for documentation pages */
+        @media print {
+
+            .navbar,
+            .footer,
+            #back-to-top,
+            .cta,
+            .faq-toggle {
+                display: none !important;
+            }
+
+            .hero {
+                padding: 2rem 0;
+                min-height: auto;
+            }
+
+            .hero-image {
+                display: none;
+            }
+
+            .section {
+                padding: 2rem 0;
+                page-break-inside: avoid;
+            }
+
+            .doc-preview {
+                border: 1px solid #ddd;
+                box-shadow: none !important;
+            }
+
+            .faq-answer {
+                display: block !important;
+            }
+
+            body {
+                font-size: 12pt;
+                color: black;
+                background: white;
+            }
+
+            a {
+                color: black;
+                text-decoration: underline;
+            }
+
+            @page {
+                margin: 1.5cm;
+            }
+        }
+
+        /* Fix for sticky hover effects on mobile */
+        @media (hover: none) {
+
+            .feature-card:hover,
+            .tech-card:hover,
+            .why-docs-image img:hover,
+            .path-card:hover,
+            .hero-image:hover,
+            .doc-preview:hover {
+                transform: none !important;
+                box-shadow: var(--card-shadow) !important;
+            }
+        }
+
+        /* Improvements for loader visibility across all screen sizes */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background-color: var(--preloader-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Fix for light/dark theme toggle on mobile */
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Ensure mobile menu always has good contrast */
+        html[data-theme="dark"] .mobile-menu {
+            background-color: var(--bg-color-dark);
+        }
+
+        html[data-theme="light"] .mobile-menu {
+            background-color: var(--bg-color-light);
+        }
+
+        /* Ensure SVG scales properly on all screen sizes */
+        .hero-image svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Improve readability in dark mode */
+        html[data-theme="dark"] {
+            color-scheme: dark;
+        }
+
+
+        /* Enhanced Responsive Styles for Navbar and Hero */
+        .navbar {
+            padding: 1rem 5%;
+        }
+
+        .hero {
+            padding: clamp(5rem, 15vh, 10rem) 5% clamp(3rem, 10vh, 8rem);
+        }
+
+        .hero-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            width: 100%;
+        }
+
+        .hero-image {
+            max-width: min(100%, 500px);
+            margin: 0 auto;
+        }
+
+        .mobile-menu {
+            width: min(85%, 300px);
+        }
+
+        .nav-actions .btn,
+        .nav-link {
+            padding: 0.8rem 1rem;
+        }
+
+        @media (min-width: 992px) {
+            .hero-buttons {
+                justify-content: flex-start;
+            }
+
+        }
+
+        @media (min-width: 768px) {
+            .hero-buttons {
+                flex-direction: row;
+                width: auto;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .hero-container {
+                flex-direction: row;
+                text-align: left;
+                align-items: center;
+            }
+
+            .hero-image {
+                margin: 0;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+        }
+
+        /* Light Theme Specific CSS Updates */
+
+        html[data-theme="light"] {
+            /* Background colors */
+            --bg-color: var(--bg-color-light);
+            --bg-color-secondary: var(--bg-color-light-secondary);
+            --bg-color-tertiary: var(--bg-color-light-tertiary);
+
+            /* Text colors */
+            --text-color: var(--text-color-light);
+            --text-secondary: var(--text-secondary-light);
+
+            /* Accent colors */
+            --accent: var(--accent-light);
+            --accent-hover: var(--accent-light-hover);
+            --accent-transparent: var(--accent-light-transparent);
+            --accent-gradient: var(--accent-light-gradient);
+
+            /* Component styles */
+            --card-bg: var(--card-bg-light);
+            --card-border: var(--card-border-light);
+            --card-shadow: var(--card-shadow-light);
+            --nav-bg: var(--nav-bg-light);
+            --code-bg: var(--code-bg-light);
+            --hero-gradient: var(--hero-gradient-light);
+        }
+
+        /* Light theme SVG styles */
+        html[data-theme="light"] .hero-image svg {
+            background-color: var(--bg-color-light-secondary);
+        }
+
+        html[data-theme="light"] .doc-svg .bg-fill {
+            fill: url(#bgGradientLight);
+        }
+
+        html[data-theme="light"] .doc-svg .text-primary {
+            fill: #1a1a1a;
+        }
+
+        html[data-theme="light"] .doc-svg .text-secondary {
+            fill: #4a5568;
+        }
+
+        html[data-theme="light"] .doc-svg .card-bg {
+            fill: #ffffff;
+        }
+
+        html[data-theme="light"] .doc-svg .card-stroke {
+            stroke: rgba(0, 0, 0, 0.1);
+        }
+
+        html[data-theme="light"] .doc-svg .code-bg {
+            fill: #f1f5f9;
+        }
+
+        /* Stats section background for light mode */
+        html[data-theme="light"] section[style*="background: linear-gradient(135deg, #16213e 0%, #0d0d0d 100%)"] {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e2e8f0 100%) !important;
+        }
+
+        html[data-theme="light"] section[style*="background: linear-gradient(135deg, #16213e 0%, #0d0d0d 100%)"] div[style*="color: var(--website-heading-text)"] {
+            color: var(--text-secondary-light) !important;
+        }
+
+        html[data-theme="light"] section[style*="background: linear-gradient(135deg, #16213e 0%, #0d0d0d 100%)"] div[style*="color: var(--primary-color)"] {
+            color: var(--accent-light) !important;
+        }
+
+        /* Mobile menu light theme adjustments */
+        html[data-theme="light"] .mobile-menu-toggle span {
+            background-color: var(--text-color-light);
+        }
+
+        /* Code block adjustments for light theme */
+        html[data-theme="light"] .code-keyword {
+            color: #0074d9;
+        }
+
+        /* Button adjustments for better contrast in light mode */
+        html[data-theme="light"] .btn-secondary {
+            border-color: var(--accent-light);
+            color: var(--text-secondary-light);
+        }
+
+        html[data-theme="light"] .btn-secondary:hover {
+            background-color: var(--accent-light-transparent);
+            color: var(--text-color-light);
+        }
+
+        /* FAQ toggle button light theme */
+        html[data-theme="light"] .faq-toggle {
+            background-color: var(--accent-light-transparent);
+        }
+
+        html[data-theme="light"] .faq-toggle i {
+            color: var(--accent-light);
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <!-- <div id="preloader">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div> -->
+
+    <!-- Back to top button -->
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="logo">
+            <img src="../assets/images/Telusko (1).png" alt="Telusko Logo">
+        </a>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+            <div class="nav-menu" style="display: flex; align-items: center; gap: 25px;" id="desktop-nav">
+                <a href="https://courses.telusko.com/learn" class="nav-link"
+                    style="color: var(--text-secondary); text-decoration: none; font-weight: 500; padding: 8px 5px; position: relative; transition: all 0.3s ease;">Courses</a>
+                <a href="article.html" class="nav-link"
+                    style="color: var(--text-secondary); text-decoration: none; font-weight: 500; padding: 8px 5px; position: relative; transition: all 0.3s ease;">Articles</a>
+                <a href="contact-us.html" class="nav-link"
+                    style="color: var(--text-secondary); text-decoration: none; font-weight: 500; padding: 8px 5px; position: relative; transition: all 0.3s ease;">Contact-us</a>
+            </div>
+            <div class="nav-actions" style="display: flex; align-items: center; gap: 15px;">
+                <button class="theme-toggle" id="theme-toggle"
+                    style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background-color: var(--bg-color-tertiary); color: var(--text-color); cursor: pointer; transition: all 0.3s ease; border: none; font-size: 1.1rem;">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </button>
+                <div class="mobile-menu-toggle" id="mobile-menu-toggle"
+                    style="display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; cursor: pointer; z-index: 1001; margin-left: 5px;">
+                    <span
+                        style="display: block; height: 2px; width: 100%; background-color: var(--text-color); border-radius: 2px; transition: all 0.3s ease;"></span>
+                    <span
+                        style="display: block; height: 2px; width: 100%; background-color: var(--text-color); border-radius: 2px; transition: all 0.3s ease;"></span>
+                    <span
+                        style="display: block; height: 2px; width: 100%; background-color: var(--text-color); border-radius: 2px; transition: all 0.3s ease;"></span>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function handleResponsiveNav() {
+                const desktopNav = document.getElementById('desktop-nav');
+                const mobileToggle = document.getElementById('mobile-menu-toggle');
+
+                if (window.innerWidth <= 560) {
+                    desktopNav.style.display = 'none';
+                    mobileToggle.style.display = 'flex';
+                } else {
+                    desktopNav.style.display = 'flex';
+                    mobileToggle.style.display = 'none';
+                }
+            }
+
+            // Initial check
+            handleResponsiveNav();
+
+            // Add event listener for window resize
+            window.addEventListener('resize', handleResponsiveNav);
+        </script>
+        </div>
+
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-close" id="mobile-menu-close">
+            <i class="fas fa-times"></i>
+        </div>
+        <!-- <a href="http://docs.telusko.com" class="mobile-nav-link">
+            <i class="fas fa-book"></i> Docs
+        </a> -->
+        <a href="https://courses.telusko.com/learn/view-all?show=courses&type=1" class="mobile-nav-link">
+            <i class="fas fa-graduation-cap"></i> Courses
+        </a>
+        <a href="article.html" class="mobile-nav-link">
+            <i class="fas fa-newspaper"></i> Articles
+        </a>
+        <!-- <a href="about.html" class="mobile-nav-link">
+            <i class="fas fa-info-circle"></i> About Us
+        </a> -->
+        <a href="contact-us.html" class="mobile-nav-link">
+            <i class="fas fa-envelope"></i> Contact
+        </a>
+        <!-- <a href="login.html" class="mobile-nav-link">
+            <i class="fas fa-sign-in-alt"></i> Sign In
+        </a> -->
+        <!-- <a href="register.html" class="mobile-nav-link">
+            <i class="fas fa-user-plus"></i> Get Started
+        </a> -->
+    </div>
+    <div class="menu-overlay" id="menu-overlay"></div>
+    <!-- Hero Section with SVG -->
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title"><span class="highlight">Telusko</span> Docs</h1>
+                <p class="hero-subtitle">Comprehensive guides, tutorials, and references for all your programming needs.
+                    Learn at your own pace with structured documentation.</p>
+                <div class="hero-buttons">
+                    <a href="http://docs.telusko.com" class="btn btn-primary btn-lg">
+                        <i class="fas fa-book"></i> Start Learning
+                    </a>
+                    <a href="https://courses.telusko.com/learn/view-all?show=courses&type=1"
+                        class="btn btn-secondary btn-lg">
+                        <i class="fas fa-graduation-cap"></i> Browse Courses
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="auto">
+                    <!-- Background -->
+                    <rect width="800" height="600" rx="20" fill="#1e1e1e" />
+
+                    <!-- Main documentation window -->
+                    <rect x="100" y="70" width="600" height="460" rx="10" fill="#2a2a2a" stroke="#3a3a3a"
+                        stroke-width="2" />
+
+                    <!-- Window controls -->
+                    <circle cx="130" cy="100" r="8" fill="#ff5f56" />
+                    <circle cx="155" cy="100" r="8" fill="#ffbd2e" />
+                    <circle cx="180" cy="100" r="8" fill="#27c93f" />
+
+                    <!-- Sidebar -->
+                    <rect x="100" y="130" width="160" height="400" fill="#222222" />
+
+                    <!-- Nav items -->
+                    <rect x="120" y="160" width="120" height="12" rx="2" fill="#666666" />
+                    <rect x="120" y="190" width="100" height="12" rx="2" fill="#555555" />
+                    <rect x="120" y="220" width="110" height="12" rx="2" fill="#555555" />
+                    <rect x="120" y="250" width="90" height="12" rx="2" fill="#555555" />
+                    <rect x="120" y="280" width="120" height="12" rx="2" fill="#29bf12" />
+
+                    <!-- Main content area -->
+                    <rect x="280" y="130" width="400" height="400" fill="#2a2a2a" />
+
+                    <!-- Content elements -->
+                    <rect x="300" y="160" width="240" height="24" rx="3" fill="#eeeeee" />
+                    <rect x="300" y="200" width="360" height="10" rx="2" fill="#999999" />
+                    <rect x="300" y="220" width="340" height="10" rx="2" fill="#999999" />
+                    <rect x="300" y="240" width="380" height="10" rx="2" fill="#999999" />
+
+                    <!-- Code block -->
+                    <rect x="300" y="280" width="360" height="120" rx="5" fill="#333333" />
+                    <rect x="320" y="300" width="80" height="12" rx="2" fill="#29bf12" />
+                    <rect x="410" y="300" width="120" height="12" rx="2" fill="#999999" />
+                    <rect x="320" y="330" width="200" height="12" rx="2" fill="#29bf12" />
+                    <rect x="320" y="360" width="240" height="12" rx="2" fill="#999999" />
+
+                    <!-- List items -->
+                    <circle cx="310" cy="430" r="4" fill="#29bf12" />
+                    <rect x="325" y="425" width="280" height="10" rx="2" fill="#999999" />
+                    <circle cx="310" cy="460" r="4" fill="#29bf12" />
+                    <rect x="325" y="455" width="300" height="10" rx="2" fill="#999999" />
+
+                    <!-- Floating elements -->
+                    <g transform="translate(50, 150) rotate(-8)">
+                        <rect width="180" height="220" rx="8" fill="#2a2a2a" stroke="#3a3a3a" stroke-width="2" />
+                        <rect x="0" y="0" width="180" height="6" rx="8 8 0 0" fill="#29bf12" />
+                        <rect x="20" y="26" width="140" height="16" rx="2" fill="#eeeeee" />
+                        <rect x="20" y="58" width="140" height="8" rx="2" fill="#999999" />
+                        <rect x="20" y="76" width="140" height="8" rx="2" fill="#999999" />
+                    </g>
+
+                    <g transform="translate(580, 180) rotate(8)">
+                        <rect width="200" height="180" rx="8" fill="#2a2a2a" stroke="#3a3a3a" stroke-width="2" />
+                        <rect x="0" y="0" width="200" height="6" rx="8 8 0 0" fill="#29bf12" />
+                        <rect x="15" y="22" width="170" height="140" rx="5" fill="#333333" />
+                        <rect x="30" y="42" width="70" height="10" rx="2" fill="#29bf12" />
+                        <rect x="30" y="62" width="140" height="10" rx="2" fill="#999999" />
+                    </g>
+
+                    <!-- Accent elements -->
+                    <circle cx="50" cy="50" r="20" fill="#29bf12" opacity="0.2" />
+                    <circle cx="750" cy="100" r="30" fill="#29bf12" opacity="0.1" />
+                    <circle cx="700" cy="500" r="50" fill="#29bf12" opacity="0.1" />
+                </svg>
+            </div>
+        </div>
+    </section>
+    <!-- Features Section -->
+    <section class="section features" id="features">
+        <div class="container">
+            <h2 class="section-title fade-in">Documentation Features</h2>
+            <p class="section-subtitle fade-in-delay-1">Our documentation is designed to help you learn efficiently with
+                these powerful features</p>
+
+            <div class="features-grid">
+                <!-- <div class="feature-card fade-in-up">
+                    <div class="feature-body">
+                        <div class="feature-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="feature-title">Interactive Code Examples</h3>
+                        <p class="feature-text">Learn by doing with our interactive code examples that allow you to
+                            experiment right in the browser.</p>
+                    </div>
+                </div> -->
+
+                <div class="feature-card fade-in-up">
+                    <div class="feature-body">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="feature-title">Quick Start Guides</h3>
+                        <p class="feature-text">Get up and running quickly with our beginner-friendly quick start guides
+                            for all technologies.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card fade-in-up">
+                    <div class="feature-body">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3 class="feature-title">Advanced Search</h3>
+                        <p class="feature-text">Find exactly what you need with our powerful search functionality that
+                            covers all documentation.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card fade-in-up">
+                    <div class="feature-body">
+                        <div class="feature-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3 class="feature-title">Concept Maps</h3>
+                        <p class="feature-text">Visualize how concepts connect with our interactive concept maps for
+                            better understanding.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card fade-in-up">
+                    <div class="feature-body">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <h3 class="feature-title">Code Snippets</h3>
+                        <p class="feature-text">Copy and paste ready-to-use code snippets for common programming tasks
+                            and patterns.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card fade-in-up">
+                    <div class="feature-body">
+                        <div class="feature-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 class="feature-title">Community Notes</h3>
+                        <p class="feature-text">Benefit from community-contributed notes and tips that supplement the
+                            official documentation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Technologies Section -->
+    <section class="section technologies" id="technologies">
+        <div class="container">
+            <h2 class="section-title fade-in">Technologies Covered</h2>
+            <p class="section-subtitle fade-in-delay-1">Explore our comprehensive documentation for a wide range of
+                programming languages and technologies</p>
+
+            <div class="tech-grid">
+                <div class="tech-card fade-in-up">
+                    <div class="tech-icon">
+                        <i class="fab fa-java"></i>
+                    </div>
+                    <h3 class="tech-name">Java</h3>
+                    <p class="tech-description">Comprehensive guides for Java programming from basics to advanced
+                        concepts.</p>
+                </div>
+
+                <div class="tech-card fade-in-up">
+                    <div class="tech-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3 class="tech-name">Python</h3>
+                    <p class="tech-description">Learn Python programming with our step-by-step tutorials and examples.
+                    </p>
+                </div>
+
+                <div class="tech-card fade-in-up">
+                    <div class="tech-icon">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <h3 class="tech-name">JavaScript</h3>
+                    <p class="tech-description">Master modern JavaScript with our detailed documentation and best
+                        practices.</p>
+                </div>
+
+                <div class="tech-card fade-in-up">
+                    <div class="tech-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3 class="tech-name">Blockchain</h3>
+                    <p class="tech-description">Explore blockchain technology concepts, implementation, and
+                        applications.</p>
+                </div>
+
+                <div class="tech-card fade-in-up">
+                    <div class="tech-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="tech-name">Spring Boot</h3>
+                    <p class="tech-description">Build robust Java applications with our Spring Boot documentation.</p>
+                </div>
+
+                <div class="tech-card fade-in-up">
+                    <div class="tech-icon">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <h3 class="tech-name">React</h3>
+                    <p class="tech-description">Create dynamic user interfaces with our comprehensive React guides.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Documentation Demo Section -->
+    <section class="section doc-demo" id="preview">
+        <div class="container">
+            <h2 class="section-title fade-in">Documentation Preview</h2>
+            <p class="section-subtitle fade-in-delay-1">See how our documentation looks and works before diving in</p>
+
+            <div class="doc-preview fade-in-up">
+                <div class="doc-header">
+                    <div class="window-controls">
+                        <div class="window-control control-close"></div>
+                        <div class="window-control control-minimize"></div>
+                        <div class="window-control control-expand"></div>
+                    </div>
+                    <div class="doc-title">Java Documentation / Spring Boot / Getting Started</div>
+                    <div></div>
+                </div>
+
+                <div class="doc-content">
+                    <div class="doc-section">
+                        <h3 class="doc-heading h3">Getting Started with Spring Boot</h3>
+                        <p class="doc-paragraph">Spring Boot makes it easy to create stand-alone, production-grade
+                            Spring-based Applications. In this tutorial, we'll set up a basic Spring Boot application.
+                        </p>
+                    </div>
+
+                    <div class="doc-section">
+                        <h4 class="doc-heading h4">Prerequisites</h4>
+                        <ul class="doc-list">
+                            <li>Java Development Kit (JDK) 11 or later</li>
+                            <li>Maven 3.2+ or Gradle 6.8+</li>
+                            <li>Your favorite IDE (IntelliJ IDEA, Eclipse, etc.)</li>
+                        </ul>
+                    </div>
+
+                    <div class="doc-section">
+                        <h4 class="doc-heading h4">Step 1: Create a new Spring Boot project</h4>
+                        <div class="code-block">
+                            <pre><code>$ spring init --name=my-app --dependencies=web,data-jpa my-app</code></pre>
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+
+                    <div class="doc-section">
+                        <h4 class="doc-heading h4">Step 2: Create a simple controller</h4>
+                        <div class="code-block">
+                            <pre><code><span class="code-keyword">@RestController</span>
+public class HelloController {
+
+    <span class="code-keyword">@GetMapping</span>("/hello")
+    public String hello() {
+        return "Hello, World!";
+    }
+}</code></pre>
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="http://docs.telusko.com" class="btn btn-primary">
+                    Explore Full Documentation <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Why Documentation Section -->
+    <section class="section why-docs" id="why-docs">
+        <div class="container">
+            <h2 class="section-title fade-in">Why Documentation Matters</h2>
+            <p class="section-subtitle fade-in-delay-1">Well-structured documentation is the foundation of effective
+                learning</p>
+
+            <div class="why-docs-content">
+                <div class="why-docs-text fade-in-left">
+                    <h3 class="why-docs-title">Empowering Your Learning Journey</h3>
+                    <p class="why-docs-description">
+                        At Telusko, we believe that well-structured documentation is the foundation of effective
+                        learning. Our documentation serves as both a learning resource and a reference guide, helping
+                        you master complex technologies at your own pace.
+                    </p>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <p class="benefit-text">Learn at your own pace with structured, progressive content</p>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <p class="benefit-text">Reference when you need specific information during development</p>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <p class="benefit-text">Build a solid foundation with concept explanations</p>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <p class="benefit-text">Apply knowledge with practical, real-world examples</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="why-docs-image fade-in-right">
+                    <img src="../assets/images/headshot.webp" alt="Documentation Benefits">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Learning Paths Section -->
+    <section class="section learning-paths" id="learning-paths">
+        <div class="container">
+            <h2 class="section-title fade-in">Structured Learning Paths</h2>
+            <p class="section-subtitle fade-in-delay-1">Follow our carefully designed learning paths to master
+                technologies step by step</p>
+
+            <div class="paths-content">
+                <div class="path-timeline fade-in-left">
+                    <div class="path-card">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot dot-1"></div>
+                            <div class="timeline-dot dot-2"></div>
+                            <div class="timeline-dot dot-3"></div>
+                            <div class="timeline-dot dot-4"></div>
+                        </div>
+                        <div class="path-content">
+                            <h3 class="path-title">Java Developer Path</h3>
+                            <div class="path-step">
+                                <h4 class="step-title">1. Java Fundamentals</h4>
+                                <p class="step-description">Learn core Java concepts including syntax, OOP, collections,
+                                    and exception handling.</p>
+                            </div>
+                            <div class="path-step">
+                                <h4 class="step-title">2. Java Advanced</h4>
+                                <p class="step-description">Master multithreading, IO operations, lambda expressions,
+                                    and streams.</p>
+                            </div>
+                            <div class="path-step">
+                                <h4 class="step-title">3. Spring Framework</h4>
+                                <p class="step-description">Understand Spring Core, Dependency Injection, and
+                                    application context.</p>
+                            </div>
+                            <div class="path-step">
+                                <h4 class="step-title">4. Spring Boot</h4>
+                                <p class="step-description">Build production-ready applications with Spring Boot and
+                                    microservices.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="path-image fade-in-right">
+                    <img src="../assets/images/scrollimgthree.webp" alt="Learning Path Illustration">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Documentation Stats -->
+    <!-- <section style="padding: 4rem 2rem; background: linear-gradient(135deg, #16213e 0%, #0d0d0d 100%);">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+                <div class="fade-in-up">
+                    <div style="font-size: 3rem; font-weight: 700; color: var(--primary-color); margin-bottom: 0.5rem;">
+                        1000+</div>
+                    <div style="color: var(--website-heading-text); font-size: 1.2rem;">Documentation Pages</div>
+                </div>
+
+                <div class="fade-in-up">
+                    <div style="font-size: 3rem; font-weight: 700; color: var(--primary-color); margin-bottom: 0.5rem;">
+                        500+</div>
+                    <div style="color: var(--website-heading-text); font-size: 1.2rem;">Code Examples</div>
+                </div>
+
+                <div class="fade-in-up">
+                    <div style="font-size: 3rem; font-weight: 700; color: var(--primary-color); margin-bottom: 0.5rem;">
+                        50+</div>
+                    <div style="color: var(--website-heading-text); font-size: 1.2rem;">Technology Guides</div>
+                </div>
+
+                <div class="fade-in-up">
+                    <div style="font-size: 3rem; font-weight: 700; color: var(--primary-color); margin-bottom: 0.5rem;">
+                        10k+</div>
+                    <div style="color: var(--website-heading-text); font-size: 1.2rem;">Monthly Readers</div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- FAQ Section -->
+    <section class="section faq" id="faq">
+        <div class="container">
+            <h2 class="section-title fade-in">Frequently Asked Questions</h2>
+            <p class="section-subtitle fade-in-delay-1">Find answers to common questions about our documentation</p>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How is the documentation organized?</span>
+                        <div class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        Our documentation is organized by technology and difficulty level. Each technology section
+                        starts with basic concepts and progressively moves to more advanced topics. You can follow the
+                        recommended learning path or jump to specific topics as needed.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is the documentation free to access?</span>
+                        <div class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, all our documentation is completely free and accessible to everyone. We believe in making
+                        quality education available to all. For more in-depth learning with instructor guidance, you can
+                        check out our paid courses.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How often is the documentation updated?</span>
+                        <div class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        We update our documentation regularly to keep it current with the latest versions of languages
+                        and frameworks. Each document shows a "Last Updated" date, and we also maintain a changelog for
+                        major updates.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I contribute to the documentation?</span>
+                        <div class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        Absolutely! We welcome community contributions. You can suggest edits, report issues, or
+                        contribute new content through our GitHub repository. Check the "Contribute" section in the
+                        documentation for guidelines.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I get help if I'm stuck?</span>
+                        <div class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        If you're stuck, you can post your question in our community forum where our instructors and
+                        community members can help. For course-specific questions, you can use the Q&A section in the
+                        course platform.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-container">
+            <h2 class="cta-title fade-in">Start Your Learning Journey Today</h2>
+            <p class="cta-subtitle fade-in-delay-1">Dive into our comprehensive documentation and take your programming
+                skills to the next level</p>
+            <a href="http://docs.telusko.com" class="cta-button pulse">
+                Explore Documentation <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="../assets/images/Telusko (1).png" alt="Telusko Logo">
+                    </div>
+                    <p class="footer-description">
+                        Empowering developers with comprehensive documentation and structured learning paths to master
+                        programming technologies.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/@Telusko" class="social-link" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/navinreddy20/?original_referer=https%3A%2F%2Ftelusko.com%2F"
+                            class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://x.com/navinreddy20" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/navinreddyofficial/" class="social-link"
+                            aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://discord.gg/D8hWe9BqfF" class="social-link" aria-label="Discord">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3 class="footer-title">Documentation</h3>
+                    <div class="footer-links">
+                        <a href="https://docs.telusko.com/" class="footer-link">
+                            <i class="fas fa-chevron-right"></i> Java
+                        </a>
+                        <a href="https://docs.telusko.com/" class="footer-link">
+                            <i class="fas fa-chevron-right"></i> Python
+                        </a>
+                        <a href="https://docs.telusko.com/" class="footer-link">
+                            <i class="fas fa-chevron-right"></i> JavaScript
+                        </a>
+                        <a href="https://docs.telusko.com/" class="footer-link">
+                            <i class="fas fa-chevron-right"></i> Blockchain
+                        </a>
+                        <a href="https://docs.telusko.com/" class="footer-link">
+                            <i class="fas fa-chevron-right"></i> Spring Boot
+                        </a>
+                        <a href="https://docs.telusko.com/" class="footer-link">
+                            <i class="fas fa-chevron-right"></i> React
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3 class="footer-title">Resources</h3>
+                    <div class="footer-links">
+                        <a href="https://courses.telusko.com/learn" class="footer-link">
+                            <i class="fas fa-chevron-right"></i> Courses
+                        </a>
+                        <a href="https://courses.telusko.com/learn" class="footer-link">
+                            <i class="fas fa-chevron-right"></i> Learning Paths
+                        </a>
+                        <a href="article.html" class="footer-link">
+                            <i class="fas fa-chevron-right"></i> Articles
+                        </a>
+                        <a href="https://discord.com/invite/D8hWe9BqfF" class="footer-link">
+                            <i class="fas fa-chevron-right"></i> Community
+                        </a>
+                        <a href="https://discord.com/invite/D8hWe9BqfF" class="footer-link">
+                            <i class="fas fa-chevron-right"></i> Contribute
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3 class="footer-title">Company</h3>
+                    <div class="footer-links">
+                        <a href="index.html" class="footer-link">
+                            <i class="fas fa-chevron-right"></i> About Us
+                        </a>
+                        <a href="teams.html" class="footer-link">
+                            <i class="fas fa-chevron-right"></i> Team
+                        </a>
+                        <a href="career.html" class="footer-link">
+                            <i class="fas fa-chevron-right"></i> Career
+                        </a>
+                        <a href="contact-us.html" class="footer-link">
+                            <i class="fas fa-chevron-right"></i> Contact
+                        </a>
+                        <a href="article.html" class="footer-link">
+                            <i class="fas fa-chevron-right"></i> Blog
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom">
+                <p class="copyright">Copyright © <span id="currentYear">2025</span> Telusko. All rights reserved.</p>
+                <!-- <div class="footer-legal">
+                    <a href="#" class="legal-link">Terms of Service</a>
+                    <a href="#" class="legal-link">Privacy Policy</a>
+                    <a href="#" class="legal-link">Refund Policy</a>
+                </div> -->
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript -->
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                preloader.classList.add('fade-out');
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 300);
+            }, 500);
+        });
+
+        // Current year for footer
+        document.getElementById('currentYear').innerText = new Date().getFullYear();
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        // Check for saved theme preference or default to user preference
+        const savedTheme = localStorage.getItem('theme') ||
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+        // Apply the saved theme
+        htmlElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        // Theme toggle click handler
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            } else {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        }
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        // window.addEventListener('scroll', function () {
+        //     if (window.scrollY > 50) {
+        //         navbar.classList.add('scrolled');
+        //     } else {
+        //         navbar.classList.remove('scrolled');
+        //     }
+        // });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuOverlay = document.getElementById('menu-overlay');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+        });
+
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        menuOverlay.addEventListener('click', closeMobileMenu);
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // FAQ accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+    <script>
+        // Copy buttons for code blocks
+        const copyButtons = document.querySelectorAll('.copy-btn');
+        copyButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const codeBlock = this.previousElementSibling;
+                const textToCopy = codeBlock.textContent;
+
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    // Change button text temporarily
+                    const originalText = this.textContent;
+                    this.textContent = 'Copied!';
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                    }, 2000);
+                });
+            });
+        });
+
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.fade-in, .fade-in-up, .fade-in-down, .fade-in-left, .fade-in-right, .fade-in-delay-1, .fade-in-delay-2');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            animateElements.forEach(element => {
+                element.style.animationPlayState = 'paused';
+                observer.observe(element);
+            });
+        });
+
+        // Number animation for stats
+        document.addEventListener('DOMContentLoaded', () => {
+            const statElements = document.querySelectorAll('.stat-value');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetValue = parseInt(entry.target.getAttribute('data-count'));
+                        animateNumber(entry.target, targetValue);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+
+            statElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const statElements = document.querySelectorAll('div[style*="font-size: 3rem"]');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetValue = parseInt(entry.target.textContent.replace(/\D/g, ''));
+                        let currentValue = 0;
+                        const duration = 2000; // 2 seconds
+                        const interval = 50; // Update every 50ms
+                        const steps = duration / interval;
+                        const increment = targetValue / steps;
+
+                        const counter = setInterval(() => {
+                            currentValue += increment;
+                            if (currentValue >= targetValue) {
+                                entry.target.textContent = targetValue.toLocaleString() + '+';
+                                clearInterval(counter);
+                            } else {
+                                entry.target.textContent = Math.floor(currentValue).toLocaleString() + '+';
+                            }
+                        }, interval);
+
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+
+            statElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+        // SVG redraw
+        document.addEventListener('DOMContentLoaded', () => {
+            const svgElement = document.querySelector('.doc-svg');
+            if (svgElement) {
+                // Force redraw
+                svgElement.style.display = 'none';
+                setTimeout(() => {
+                    svgElement.style.display = 'block';
+                }, 100);
+            }
+        });
+
+        function animateNumber(element, targetValue) {
+            const duration = 2000; // 2 seconds
+            const frameDuration = 1000 / 60; // 60 fps
+            const totalFrames = Math.round(duration / frameDuration);
+            let frame = 0;
+
+            const countTo = targetValue;
+            let currentCount = 0;
+
+            const counter = setInterval(() => {
+                frame++;
+                const progress = frame / totalFrames;
+                currentCount = Math.round(countTo * progress);
+
+                if (progress >= 1) {
+                    element.textContent = targetValue > 999 ?
+                        `${(targetValue / 1000).toFixed(0)}k+` :
+                        `${targetValue}+`;
+                    clearInterval(counter);
+                } else {
+                    element.textContent = currentCount > 999 ?
+                        `${(currentCount / 1000).toFixed(1)}k` :
+                        currentCount;
+                }
+            }, frameDuration);
+        }
+
+        // Testimonial slider navigation (optional manual controls)
+        const testimonialSlider = document.querySelector('.testimonials-slider');
+        if (testimonialSlider) {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            testimonialSlider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                testimonialSlider.style.cursor = 'grabbing';
+                startX = e.pageX - testimonialSlider.offsetLeft;
+                scrollLeft = testimonialSlider.scrollLeft;
+            });
+
+            testimonialSlider.addEventListener('mouseleave', () => {
+                isDown = false;
+                testimonialSlider.style.cursor = 'grab';
+            });
+
+            testimonialSlider.addEventListener('mouseup', () => {
+                isDown = false;
+                testimonialSlider.style.cursor = 'grab';
+            });
+
+            testimonialSlider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - testimonialSlider.offsetLeft;
+                const walk = (x - startX) * 2;
+                testimonialSlider.scrollLeft = scrollLeft - walk;
+            });
+        }
+    </script>
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+
+                        window.scrollTo({
+                            top: targetPosition - navbarHeight,
+                            behavior: 'smooth'
+                        });
+
+                        // Close mobile menu if open
+                        closeMobileMenu();
+                    }
+                }
+            });
+        });
+
+        // SVG theme update
+        themeToggle.addEventListener('click', function () {
+            // Force SVG to redraw by briefly hiding and showing it
+            const docSvg = document.querySelector('.doc-svg');
+            if (docSvg) {
+                docSvg.style.opacity = '0.99';
+                setTimeout(() => {
+                    docSvg.style.opacity = '1';
+                }, 50);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Force SVG redraw after load
+            const svg = document.querySelector('.hero-image svg');
+            if (svg) {
+                // Create a new identical SVG element
+                const newSvg = svg.cloneNode(true);
+                // Replace the old one with the new one
+                svg.parentNode.replaceChild(newSvg, svg);
+            }
+        });
+        // Enhanced JavaScript for better responsiveness
+
+        // Debounce function to limit the rate at which a function can fire
+        function debounce(func, wait) {
+            let timeout;
+            return function () {
+                const context = this;
+                const args = arguments;
+                clearTimeout(timeout);
+                timeout = setTimeout(() => {
+                    func.apply(context, args);
+                }, wait);
+            };
+        }
+
+        // Throttle function to ensure function calls occur at most once per specified time interval
+        function throttle(func, limit) {
+            let inThrottle;
+            return function () {
+                const args = arguments;
+                const context = this;
+                if (!inThrottle) {
+                    func.apply(context, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            };
+        }
+
+        // More efficient scroll handlers using throttle
+        const scrollHandler = throttle(() => {
+            // Navbar scroll effect
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Back to top button visibility
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        }, 100);
+
+        // window.addEventListener('scroll', scrollHandler);
+
+        // Responsive image loading
+        document.addEventListener('DOMContentLoaded', () => {
+            // Detect if we're on a mobile device
+            const isMobile = window.innerWidth < 768;
+
+            // Lazy load images with data-src attribute
+            const lazyImages = document.querySelectorAll('img[data-src]');
+
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            const src = isMobile ? img.getAttribute('data-src-mobile') || img.getAttribute('data-src') : img.getAttribute('data-src');
+
+                            img.src = src;
+                            img.removeAttribute('data-src');
+                            img.removeAttribute('data-src-mobile');
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(img => {
+                    imageObserver.observe(img);
+                });
+            } else {
+                // Fallback for browsers that don't support IntersectionObserver
+                lazyImages.forEach(img => {
+                    const src = isMobile ? img.getAttribute('data-src-mobile') || img.getAttribute('data-src') : img.getAttribute('data-src');
+                    img.src = src;
+                    img.removeAttribute('data-src');
+                    img.removeAttribute('data-src-mobile');
+                });
+            }
+        });
+
+        // Fix iOS vh unit bug (100vh includes the address bar on iOS)
+        function setVHVariable() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        window.addEventListener('resize', debounce(setVHVariable, 100));
+        window.addEventListener('orientationchange', setVHVariable);
+        setVHVariable();
+
+        // Handle window resize events with debounce
+        window.addEventListener('resize', debounce(() => {
+            // Close mobile menu on window resize to desktop
+            if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+
+            // Recalculate any layout needs
+            // For example, if you have equal height elements or similar
+        }, 250));
+
+        // Fix for iOS touch delay
+        // Add this class to buttons or other interactive elements
+        document.querySelectorAll('.tap-highlight').forEach(el => {
+            el.addEventListener('touchstart', function () {
+                this.classList.add('tapped');
+            }, { passive: true });
+
+            el.addEventListener('touchend', function () {
+                this.classList.remove('tapped');
+            }, { passive: true });
+        });
+
+        // Add touch class to body for CSS targeting
+        document.addEventListener('DOMContentLoaded', function () {
+            if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+                document.body.classList.add('touch-device');
+            }
+        });
+
+        // Enhance mobile menu - add support for nested menus if needed
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                // If the link has child menu and was clicked directly (not on a child)
+                if (e.currentTarget === e.target && this.nextElementSibling && this.nextElementSibling.classList.contains('mobile-submenu')) {
+                    e.preventDefault();
+                    this.nextElementSibling.classList.toggle('active');
+                    this.classList.toggle('expanded');
+                }
+            });
+        });
+
+        // Enhance code block visibility on mobile
+        document.querySelectorAll('.code-block').forEach(block => {
+            // Add horizontal scroll indicators if content overflows
+            const checkOverflow = () => {
+                if (block.scrollWidth > block.clientWidth) {
+                    block.classList.add('has-overflow');
+                } else {
+                    block.classList.remove('has-overflow');
+                }
+            };
+
+            // Check on load and on resize
+            checkOverflow();
+            window.addEventListener('resize', debounce(checkOverflow, 100));
+        });
+
+        // Better focus management for keyboard users
+        document.addEventListener('keydown', function (e) {
+            // Show focus outlines when using keyboard navigation
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-user');
+            }
+        });
+
+        // Hide focus outlines when using mouse
+        document.addEventListener('mousedown', function () {
+            document.body.classList.remove('keyboard-user');
+        });
+    </script>
+</body>
+
+</html>
